@@ -1,4 +1,4 @@
-#define BPM 101
+#define BPM 166
 
 #define DO 261.63
 #define DOS 277.18
@@ -67,7 +67,8 @@ void loop() {
   
   playTone(SOL, HALF, false);
   playTone(FA, HALF, false);
-  
+
+  delayMicroseconds(FOUR);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -77,6 +78,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
@@ -86,6 +88,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -95,14 +98,17 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(DOS, FOUR, false);
   playTone(DOS, FOUR, false);
   playTone(DOS, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -112,6 +118,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
+  delayMicroseconds(FOUR);
   playTone(SIB, FOUR, false);
   playTone(SIB, FOUR, false);
   playTone(SIB, FOUR, false);
