@@ -18,22 +18,27 @@
 
 #define REP for(int x=0;x<2;x++) 
 
+
 const long MINUTE = 60000000;
 const long double TAKT = (MINUTE/BPM)*4;
 const long HALF = TAKT/2;
 const long FOUR = TAKT/4;
 const long EIGHT = TAKT/8;
 
+#define FOUR_PAUSE delayMicroseconds(FOUR);
+
 void setup() {
   pinMode(2, OUTPUT);
   Serial.begin(9600);
+  
 }
 
 void playTone(float v, long t, bool withPoint, int port=2) {
+  t = withPoint ? t+t/2 : t;
   const long T = 1000000 / v;
-  long d = withPoint ? T/2+t/2 : T/2;
+  long d = T/2;
   int count = t / T;
-
+  Serial.println("V: " + String(v) + "   |   point: " + String(withPoint) + "   |   length: " + String(t));
   for (int i=0;i<count;i++) {
     digitalWrite(port, HIGH);
     delayMicroseconds(d);
@@ -43,6 +48,20 @@ void playTone(float v, long t, bool withPoint, int port=2) {
   delay(10);
 }
 
+void playEmpty(float v, long t, bool withPoint, int port=2) {
+  t = withPoint ? t+t/2 : t;
+  const long T = 1000000 / v;
+  long d = T/2;
+  int count = t / T;
+  Serial.println("V: " + String(v) + "   |   point: " + String(withPoint) + "   |   length: " + String(t));
+  for (int i=0;i<count;i++) {
+    digitalWrite(4, HIGH);
+    delayMicroseconds(d);
+    digitalWrite(4, LOW);
+    delayMicroseconds(d);
+  }
+  delay(10);
+}
 
 void loop() {
   playTone(RE, HALF, true);
@@ -52,7 +71,7 @@ void loop() {
   
   playTone(LA, FOUR, true);
   playTone(SOL, FOUR, true);
-  playTone(LA, FOUR, true);
+  playTone(LA, FOUR, false);
   
   playTone(DO, TAKT, false);
   
@@ -68,7 +87,7 @@ void loop() {
   playTone(SOL, HALF, false);
   playTone(FA, HALF, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -78,7 +97,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
@@ -88,7 +107,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -98,17 +117,17 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
   playTone(LA, FOUR, false);
 
-  delayMicroseconds(FOUR);
-  playTone(DOS, FOUR, false);
-  playTone(DOS, FOUR, false);
-  playTone(DOS, FOUR, false);
+  playEmpty(RE, FOUR, false);
+  playTone(DOUPS, FOUR, false);
+  playTone(DOUPS, FOUR, false);
+  playTone(DOUPS, FOUR, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
   playTone(FA, FOUR, false);
@@ -118,7 +137,7 @@ void loop() {
   playTone(SOL, FOUR, false);
   playTone(FA, FOUR, false);
 
-  delayMicroseconds(FOUR);
+  playEmpty(RE, FOUR, false);
   playTone(SIB, FOUR, false);
   playTone(SIB, FOUR, false);
   playTone(SIB, FOUR, false);
