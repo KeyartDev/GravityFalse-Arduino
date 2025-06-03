@@ -70,10 +70,12 @@ void playEmpty(float v, long t, bool withPoint, int port=2) {
     digitalWrite(4, LOW);
     delayMicroseconds(d);
   }
+  Serial.println("----------------DELAY: " + String(T*count) + "----------------");
   delay(10);
 }
 
 void loop() {
+  Serial.println("---------------------BEGIN---------------------");
   //PRE
   playTone(FAUP, EIGHT, false);
   playTone(REUP, EIGHT, false);
@@ -198,5 +200,6 @@ void loop() {
 
   playTone(REUP, TAKT, false);
 
+  Serial.println("----------------------END----------------------");
   delay(5000);
 }
