@@ -15,6 +15,15 @@
 #define DOUP 523.25
 #define DOUPS 554.36
 #define REUP 587.32
+#define REUPS 622.26
+#define MIUP 659.26
+#define FAUP 698.46
+#define FAUPS 739.98
+#define SOLUP 784.00
+#define SOLUPS 830.60
+#define LAUP 880.00
+#define SIUPB 932.32
+#define SIUP 987.75
 
 #define REP for(int x=0;x<2;x++) 
 
@@ -24,6 +33,7 @@ const long double TAKT = (MINUTE/BPM)*4;
 const long HALF = TAKT/2;
 const long FOUR = TAKT/4;
 const long EIGHT = TAKT/8;
+const long SIXTEEN = TAKT/16;
 
 #define FOUR_PAUSE delayMicroseconds(FOUR);
 
@@ -64,6 +74,44 @@ void playEmpty(float v, long t, bool withPoint, int port=2) {
 }
 
 void loop() {
+  //PRE
+  playTone(FAUP, EIGHT, false);
+  playTone(REUP, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(REUP, EIGHT, false);
+  playTone(FAUP, EIGHT, false);
+  playTone(REUP, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(REUP, EIGHT, false);
+
+  playTone(FAUP, EIGHT, false);
+  playTone(DOUP, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(DOUP, EIGHT, false);
+  playTone(FAUP, EIGHT, false);
+  playTone(DOUP, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(DOUP, EIGHT, false);
+
+  playTone(FAUP, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+  playTone(FAUP, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+
+  playTone(FAUP, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+  playTone(LA, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+
+  playTone(MIUP, EIGHT, false);
+  playTone(DOUPS, EIGHT, false);
+  playTone(LAUP, FOUR, false);
+
+  //FIRST
   playTone(RE, HALF, true);
   playTone(MI, FOUR, false);
   
@@ -152,4 +200,3 @@ void loop() {
 
   delay(5000);
 }
-
