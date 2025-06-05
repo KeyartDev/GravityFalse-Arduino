@@ -1,4 +1,4 @@
-#define BPM 150
+#define BPM 160
 
 #define LAD 220.00
 #define SIDB 233.08
@@ -84,72 +84,75 @@ void playEmpty(float v, long t, bool withPoint, int port=2) {
 void loop() {
   Serial.println("---------------------BEGIN---------------------");
 
+  playTone(MI, FOUR, false);
+
+  playTone(LA, FOUR, true);
+  playTone(DOUP, EIGHT, false);
   playTone(SI, FOUR, false);
 
-  playTone(MIUP, FOUR, true);
-  playTone(SOLUP, EIGHT, false);
-  playTone(FAUPS, FOUR, false);
+  playTone(LA, HALF, false);
+  playTone(MIUP, FOUR, false);
 
-  playTone(MIUP, HALF, false);
-  playTone(SIUP, FOUR, false);
-
-  playTone(LAUP, HALF, true);
-
-  playTone(FAUPS, HALF, true);
-
-  playTone(MIUP, FOUR, true);
-  playTone(SOLUP, EIGHT, false);
-  playTone(FAUPS, FOUR, false);
-
-  playTone(REUPS, HALF, false);
-  playTone(FAUP, FOUR, false);
+  playTone(REUP, HALF, true);
 
   playTone(SI, HALF, true);
 
-  playEmpty(DO, FOUR, false);
-  playEmpty(DO, FOUR, false);
+  playTone(LA, FOUR, true);
+  playTone(DOUP, EIGHT, false);
   playTone(SI, FOUR, false);
 
-  playTone(MIUP, FOUR, true);
-  playTone(SOLUP, EIGHT, false);
+  playTone(SOL, HALF, false);
+  playTone(SIB, FOUR, false);
+
+  playTone(MI, TAKT+FOUR, false);
+
+  playTone(MI, FOUR, false);
+
+  playTone(LA, FOUR, true);
+  playTone(DOUP, EIGHT, false);
+  playTone(SI, FOUR, false);
+
+  playTone(LA, HALF, false);
+  playTone(MIUP, FOUR, false);
+
+  playTone(SOLUP, HALF, false);
   playTone(FAUPS, FOUR, false);
+
+  playTone(FAUP, HALF, false);
+  playTone(DOUPS, FOUR, false);
+
+  playTone(FAUP, FOUR, true);
+  playTone(MIUP, EIGHT, false);
+  playTone(REUPS, FOUR, false);
+
+  playTone(RES, HALF, false);
+  playTone(DOUP, FOUR, false);
+
+  playTone(LA, TAKT+FOUR, false);
+
+  playTone(DOUP, FOUR, false);
 
   playTone(MIUP, HALF, false);
-  playTone(SIUP, FOUR, false);
-  //SECOND
-  playTone(REUU, HALF, false);
-  playTone(DOUUS, FOUR, false);
+  playTone(DOUP, FOUR, false);
 
-  playTone(DOUU, HALF, false);
-  playTone(SOLUPS, FOUR, false);
+  playTone(MIUP, HALF, false);
+  playTone(DOUP, FOUR, false);
 
-  playTone(DOUU, FOUR, true);
-  playTone(SIUP, EIGHT, false);
-  playTone(SIUPB, FOUR, false);
+  playTone(FAUP, HALF, false);
+  playTone(MIUP, FOUR, false);
 
-  playTone(SIB, HALF, false);
-  playTone(SOLUP, FOUR, false);
+  playTone(REUPS, HALF, false);
+  playTone(SI, FOUR, false);
 
-  playTone(MIUP, HALF, true);
+  playTone(FAUP, FOUR, true);
+  playTone(MIUP, EIGHT, false);
+  playTone(REUPS, FOUR, false);
 
-  playEmpty(DO, HALF, false);
-  playTone(SOLUP, FOUR, false);
+  playTone(RES, HALF, false);
+  playTone(DOUP, FOUR, false);
 
-  playTone(SIUP, HALF, false);
-  playTone(SOLUP, FOUR, false);
-
-  playTone(SIUP, HALF, false);
-  playTone(SOLUP, FOUR, false);
-
-  playTone(DOUU, HALF, false);
-  playTone(SIUP, FOUR, false);
-
-  playTone(SIUPB, HALF, false);
-  playTone(FAUPS, FOUR, false);
-
-  playTone(SOLUP, FOUR, true);
-  playTone(SIUPB, EIGHT, false);
-  playTone(SIUPB, FOUR, false);
+  playTone(LA, HALF, true);
+  
 
   Serial.println("----------------------END----------------------");
   delay(5000);
