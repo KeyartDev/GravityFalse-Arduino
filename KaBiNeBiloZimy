@@ -65,21 +65,11 @@ void playTone(float v, long t, bool withPoint, int port=2) {
   delay(10);
 }
 
-void playEmpty(float v, long t, bool withPoint, int port=2) {
-  t = withPoint ? t+t/2 : t;
-  const long T = 1000000 / v;
-  long d = T/2;
-  int count = t / T;
-  Serial.println("V: " + String(v) + "   |   point: " + String(withPoint) + "   |   length: " + String(t));
-  for (int i=0;i<count;i++) {
-    digitalWrite(4, HIGH);
-    delayMicroseconds(d);
-    digitalWrite(4, LOW);
-    delayMicroseconds(d);
-  }
-  Serial.println("----------------DELAY: " + String(T*count) + "----------------");
-  delay(10);
+void rest(long t) {
+  Serial.println("----------------DELAY: " + String(t/1000) + "----------------");
+  delay(t/1000);
 }
+
 
 void loop() {
   Serial.println("---------------------BEGIN---------------------");
@@ -98,7 +88,7 @@ void loop() {
   playTone(DOUP, SIXTEEN, false);
   playTone(DOUP, EIGHT, false);
   playTone(SI, EIGHT, false);
-  playEmpty(SID, FOUR, false);
+  rest(FOUR);
 
   playTone(REUP, EIGHT, false);
   playTone(DOUP, EIGHT, false);
@@ -114,8 +104,7 @@ void loop() {
   playTone(LA, SIXTEEN, false);
   playTone(LA, EIGHT, false);
   playTone(SOL, EIGHT, false);
-  playEmpty(SID, FOUR, false);
-
+  rest(FOUR);
 
   playTone(SID, EIGHT, false);
   playTone(SID, EIGHT, false);
@@ -131,7 +120,7 @@ void loop() {
   playTone(DOUP, SIXTEEN, false);
   playTone(DOUP, EIGHT, false);
   playTone(SI, EIGHT, false);
-  playEmpty(SID, EIGHT, false);
+  rest(FOUR);
   playTone(MIUP, FOUR, false);
 
   playTone(DOUP, EIGHT, false);
@@ -147,7 +136,7 @@ void loop() {
   playTone(LA, SIXTEEN, false);
   playTone(LA, EIGHT, false);
   playTone(SOL, EIGHT, false);
-  playEmpty(SID, EIGHT, false);
+  rest(FOUR);
   playTone(MIUP, FOUR, false);
 
   playTone(DOUP, EIGHT, false);
@@ -163,7 +152,7 @@ void loop() {
   playTone(RES, SIXTEEN, false);
   playTone(FAS, EIGHT, false);
   playTone(MI, EIGHT, false);
-  playEmpty(SID, FOUR, false);
+  rest(FOUR);
 
   Serial.println("----------------------END----------------------");
   delay(5000);
